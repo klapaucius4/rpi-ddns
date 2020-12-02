@@ -16,19 +16,20 @@ if(isset($_GET['auth'])){
 
         $json_data = json_encode(array('ip' => $ipAddress));
 
-        $file = fopen($fileName, 'w') or die("Can't create file rpi-ddns-data.json");
+        $fileHandle = fopen($fileName, 'w') or die("Can't create file rpi-ddns-data.json");
 
         if(file_put_contents('rpi-ddns-data.json', $json_data)){
             echo 'Successfully saved IP: '.$ipAddress.'.';
         }else{
             echo 'Can \'t save IP.';
         }
+
+        fclose($fileHandle);
     }
 }
 else{
-    if($file = fopen($fileName, 'r')){
+    if($file = file_get_contents($fileName)){
         $data = json_encode($file);
-        var_dump($data); exit;
         if($data && isset($data['ip'])){
             header("Location: ".$data['ip']);
             exit;
