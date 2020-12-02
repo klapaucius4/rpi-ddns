@@ -28,8 +28,10 @@ if(isset($_GET['auth'])){
 
     if($file = fopen($newfile, 'r')){
         $data = json_encode($file);
-
-        var_dump($data);
+        if($data && isset($data['ip'])){
+            header("Location: ".$data['ip']);
+            exit;
+        }
     }
     // otherwise do any action, for example redirect to Google
     header("Location: https://google.com/");
