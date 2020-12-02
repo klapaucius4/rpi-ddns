@@ -30,8 +30,8 @@ if(isset($_GET['auth'])){
 else{
     if($file = file_get_contents($fileName)){
         $data = json_decode($file);
-        if($data && isset($data['ip'])){
-            header("Location: ".$data['ip']);
+        if($data && isset($data->ip)){
+            header("Location: ".$data->ip);
             exit;
         }
     }
