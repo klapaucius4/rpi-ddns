@@ -24,7 +24,8 @@ if(isset($_GET['auth'])){
             echo 'Can \'t save IP.';
         }
     }
-}else{
+}
+else{
 
     if($file = fopen($fileName, 'r')){
         $data = json_encode($file);
