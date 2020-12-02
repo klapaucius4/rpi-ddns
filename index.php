@@ -26,7 +26,8 @@ if(isset($_GET['auth'])){
     }
 }
 else{
-
+    $file = fopen($fileName, 'r');
+    var_dump($file);
     if($file = fopen($fileName, 'r')){
         $data = json_encode($file);
         var_dump($data); exit;
