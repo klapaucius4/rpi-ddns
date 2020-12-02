@@ -27,6 +27,8 @@ if(isset($_GET['auth'])){
 }
 else{
     if($file = fopen($fileName, 'r')){
+        $data = json_encode($file);
+        var_dump($data); exit;
         if($data && isset($data['ip'])){
             header("Location: ".$data['ip']);
             exit;
