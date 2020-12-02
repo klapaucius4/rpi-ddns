@@ -16,7 +16,7 @@ if(isset($_GET['auth'])){
 
         $json_data = json_encode(array('ip' => $ipAddress));
 
-        $file = fopen($newfile, 'w') or die("Can't create file rpi-ddns-data.json");
+        $file = fopen($fileName, 'w') or die("Can't create file rpi-ddns-data.json");
 
         if(file_put_contents('rpi-ddns-data.json', $json_data)){
             echo 'Successfully saved IP: '.$ipAddress.'.';
