@@ -14,7 +14,7 @@ if(isset($_GET['auth'])){
         
         $ipAddress = getRealIpAddr();
 
-        $json_data = json_encode(array('ip' => $ipAddress, 'last_modyfication' => date('now')));
+        $json_data = json_encode(array('ip' => $ipAddress, 'last_modyfication' => date('Y-m-d H:i:s')));
 
         $fileHandle = fopen($fileName, 'w') or die("Can't create file rpi-ddns-data.json");
 
