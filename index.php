@@ -20,7 +20,7 @@ if(file_exists('rpi-ddns-auth.php')){
 $fileName = "rpi-ddns-data.json";
 
 if(!$authSalt){
-    echo "You must set value of variable \'authSalt\' in file rpi-ddns-auth.php!";
+    echo "You must set value of variable 'authSalt' in file rpi-ddns-auth.php!";
     exit;
 }
 
