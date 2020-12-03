@@ -34,6 +34,7 @@ Step by step instruction
 
     The example above will be send request to script every **5 seconds** (you can change it by replace "*/5" fragment).
 5. If you enter the script URL to your browser (my url is http://drukareczka.tk/), you should see IP address of your machine and after 5 seconds it should redirect you to this address (will work as long as you have unblocked ports for HTTP or HTTPS on router and have enabled server service on machine).
+6. You can also copy file ".htpasswd-sample" to ".htpasswd" and set login / password as an additional security. 
 
     If you didn't send request to script with auth_salt and it didn't save address of your machine, then you will be redirect to Google (or you can do any other action).
 
