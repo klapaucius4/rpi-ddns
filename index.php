@@ -1,4 +1,17 @@
 <?php
+
+
+/**
+ *
+ * Raspberry Pi DDNS Script
+ *
+ * @author     Michał Kowalik
+ * @version    1.0
+ * @link       https://github.com/klapaucius4/rpi-ddns
+ */
+
+
+
 /* Important - change value of AUTH_SALT in the line below! */
 define('AUTH_SALT', '89db210dcc89b18f75ec4ed7848bed21');
 /* The value in the above line is encoded value "rpi-ddns" in the MD5 algorithm.
@@ -32,7 +45,8 @@ else{
     if($file = file_get_contents($fileName)){
         $data = json_decode($file);
         if($data && isset($data->ip)){
-            header("Location: http://".$data->ip);
+            echo "Redirecting to http://".$data->ip."...";
+            header("Refresh:5; url=:http://".$data->ip);
             exit;
         }
     }
