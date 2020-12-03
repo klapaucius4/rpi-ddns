@@ -11,21 +11,21 @@
  */
 
 
-if(!file_exists('rpi-ddns-auth.php')){
-    
+if(file_exists('rpi-ddns-auth.php')){
+    include_once 'rpi-ddns-auth.php';
 }
 
 // header("HTTP/1.1 301 Moved Permanently");
 
 $fileName = "rpi-ddns-data.json";
 
-if(!AUTH_SALT){
-    echo "You must set value of constant AUTH_SALT in file rpi-ddns-auth.php!";
+if(!$authSalt){
+    echo "You must set value of variable \'authSalt\' in file rpi-ddns-auth.php!";
     exit;
 }
 
 elseif(isset($_GET['auth'])){
-    if(strip_tags($_GET['auth']) == AUTH_SALT){
+    if(strip_tags($_GET['auth']) == $authSalt){
         
         $ipAddress = getRealIpAddr();
 

@@ -18,7 +18,7 @@ Step by step instruction
 -----
 
 1. Upload / clone index.php to any catalog on your hosting. In my case it is root folder of domain  **http://drukareczka.tk/**
-2. In file index.php **set the value of constant "AUTH_SALT" to your own!**. You should use complicated and long value for your safety.
+2. In file index.php **set the value of variable "authSalt" to your own!**. You should use complicated and long value for your safety.
 3. Open Linux console on your machine. You can also login into it by SSH. If you have RPI, default login and password are: pi / raspberry. Of course you should change them to yours custom password!
 4. Type in console:
 
@@ -28,7 +28,7 @@ Step by step instruction
 
     ``` */5 * * * * wget -q -O - "http://<your_domain>/?auth=<auth_salt>" >/dev/null 2>&1 ```
 
-    Replace your_domain and auth_salt by correct data. In my case there is: 
+    Replace your_domain and authSalt by correct data. In my case there is: 
 
     ``` */5 * * * * wget -q -O - "http://drukareczka.tk/?auth=89db210dcc89b18f75ec4ed7848bed21" >/dev/null 2>&1 ```
 
