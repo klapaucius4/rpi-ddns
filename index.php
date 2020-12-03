@@ -11,25 +11,32 @@
  */
 
 
-
-/* Important - change value of AUTH_SALT in the line below! */
+/* Important - set value of AUTH_SALT in the line below! */
+define('AUTH_SALT', '');
+/*
+example:
 define('AUTH_SALT', '89db210dcc89b18f75ec4ed7848bed21');
-/* The value in the above line is encoded value "rpi-ddns" in the MD5 algorithm.
-You should use also complicated and long value for your safety */
 
+The value in the above line is encoded value "rpi-ddns" in the MD5 algorithm.
+You should use also complicated and long value for your safety */
 
 header("HTTP/1.1 301 Moved Permanently");
 
 $fileName = "rpi-ddns-data.json";
 
-if(isset($_GET['auth'])){
+if(empty(AUTH_SALT)){
+    echo "You must set value of constant AUTH_SALT!";
+    exit;
+}
+
+elseif(isset($_GET['auth'])){
     if(strip_tags($_GET['auth']) == AUTH_SALT){
         
         $ipAddress = getRealIpAddr();
 
         $json_data = json_encode(array('ip' => $ipAddress, 'last_modyfication' => date('Y-m-d H:i:s')));
 
-        $fileHandle = fopen($fileName, 'w') or die("Can't create file rpi-ddns-data.json");
+        $fileHandle = fopen($fileName, 'w') or die("Can't create file rpi-ddns-data.json. Probably problem is with file permission.");
 
         if(file_put_contents('rpi-ddns-data.json', $json_data)){
             echo 'Successfully saved IP: '.$ipAddress.'.';
