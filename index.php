@@ -12,15 +12,15 @@
 
 
 if(!file_exists('rpi-ddns-auth.php')){
-    define('AUTH_SALT', '');
+    
 }
 
 // header("HTTP/1.1 301 Moved Permanently");
 
 $fileName = "rpi-ddns-data.json";
 
-if(empty(AUTH_SALT)){
-    echo "You must set value of constant AUTH_SALT!";
+if(!AUTH_SALT){
+    echo "You must set value of constant AUTH_SALT in file rpi-ddns-auth.php!";
     exit;
 }
 
