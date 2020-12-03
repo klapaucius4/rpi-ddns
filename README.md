@@ -36,8 +36,8 @@ Step by step instruction
 5. If you enter the script URL to your browser (my url is http://drukareczka.tk/), you should see IP address of your machine and after 5 seconds it should redirect you to this address (will work as long as you have unblocked ports for HTTP or HTTPS on router and have enabled server service on machine).
 
     If you didn't send request to script with auth_salt and it didn't save address of your machine, then you will be redirect to Google (or you can do any other action).
-    
-6. You can also edit file ".htpasswd" and set login / password as an additional security. 
+
+6. You can also copy file ".htpasswd-sample" to ".htpasswd" and set login / password as an additional security. 
 
 
 
