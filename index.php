@@ -15,7 +15,7 @@ if(file_exists('rpi-ddns-auth.php')){
     include_once 'rpi-ddns-auth.php';
 }
 
-// header("HTTP/1.1 301 Moved Permanently");
+header("HTTP/1.1 301 Moved Permanently");
 
 $fileName = "rpi-ddns-data.json";
 
@@ -48,7 +48,7 @@ else{
         $data = json_decode($file);
         if($data && isset($data->ip)){
             echo "Redirecting to http://".$data->ip."...";
-            header("Refresh:5; url=:http://".$data->ip);
+            header("Refresh:5; url=http://".$data->ip);
             exit;
         }
     }
