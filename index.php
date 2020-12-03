@@ -11,7 +11,7 @@
  */
 
 
-if(!file_exists('rpi-ddns-salt.php')){
+if(!file_exists('rpi-ddns-auth.php')){
     define('AUTH_SALT', '');
 }
 
