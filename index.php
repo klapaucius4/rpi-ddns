@@ -1,4 +1,17 @@
 <?php
+
+
+/**
+ *
+ * Raspberry Pi DDNS Script
+ *
+ * @author     Michał Kowalik
+ * @version    1.0
+ * @link       https://github.com/klapaucius4/rpi-ddns
+ */
+
+
+
 /* Important - change value of AUTH_SALT in the line below! */
 define('AUTH_SALT', '89db210dcc89b18f75ec4ed7848bed21');
 /* The value in the above line is encoded value "rpi-ddns" in the MD5 algorithm.
@@ -14,22 +27,26 @@ if(isset($_GET['auth'])){
         
         $ipAddress = getRealIpAddr();
 
-        $json_data = json_encode(array('ip' => $ipAddress));
+        $json_data = json_encode(array('ip' => $ipAddress, 'last_modyfication' => date('Y-m-d H:i:s')));
 
-        $file = fopen($fileName, 'w') or die("Can't create file rpi-ddns-data.json");
+        $fileHandle = fopen($fileName, 'w') or die("Can't create file rpi-ddns-data.json");
 
         if(file_put_contents('rpi-ddns-data.json', $json_data)){
             echo 'Successfully saved IP: '.$ipAddress.'.';
         }else{
             echo 'Can \'t save IP.';
         }
-    }
-}else{
 
-    if($file = fopen($fileName, 'r')){
-        $data = json_encode($file);
-        if($data && isset($data['ip'])){
-            header("Location: ".$data['ip']);
+        fclose($fileHandle);
+    }
+}
+else{
+
+    if($file = file_get_contents($fileName)){
+        $data = json_decode($file);
+        if($data && isset($data->ip)){
+            echo "Redirecting to http://".$data->ip."...";
+            header("Refresh:5; url=:http://".$data->ip);
             exit;
         }
     }
