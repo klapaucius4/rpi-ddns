@@ -18,7 +18,7 @@ Step by step instruction
 -----
 
 1. Upload / clone index.php to any catalog on your hosting. In my case it is root folder of domain  **http://drukareczka.tk/**
-2. In file index.php **set the value of variable "authSalt" to your own!**. You should use complicated and long value for your safety.
+2. Copy the file "rpi-ddns-auth-sample.php" to new file and set name "rpi-ddns-auth.php" **set the value of variable "authSalt" to your own!**. You should use complicated and long value for your safety.
 3. Open Linux console on your machine. You can also login into it by SSH. If you have RPI, default login and password are: pi / raspberry. Of course you should change them to yours custom password!
 4. Type in console:
 
