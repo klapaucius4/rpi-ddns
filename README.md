@@ -37,7 +37,7 @@ Step by step instruction
 
     If you didn't send request to script with auth_salt and it didn't save address of your machine, then you will be redirect to Google (or you can do any other action).
 
-6. You can also copy file ".htpasswd-sample" to ".htpasswd" and set login / password as an additional security. 
+6. You can also copy file ".htaccess-sample" to ".htaccess". Next copy ".htpasswd-sample" to ".htpasswd" and set login / password as an additional security. 
 
 
 
